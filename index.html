@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Retrouvailles ❤️</title>
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: #ffe6ea; text-align: center; padding-top: 100px; }
+    h1 { font-size: 2em; color: #e91e63; }
+    #countdown { font-size: 1.5em; margin-top: 20px; color: #333; }
+  </style>
+</head>
+<body>
+  <h1>💞 Plus que...</h1>
+  <div id="countdown"></div>
+
+  <script>
+    const target = new Date("2025-11-10T18:00:00").getTime();
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const diff = target - now;
+      if (diff < 0) return document.getElementById("countdown").textContent = "C'est aujourd'hui ! 💕";
+      const d = Math.floor(diff / (1000*60*60*24));
+      const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const s = Math.floor((diff % (1000*60)) / 1000);
+      document.getElementById("countdown").textContent = `${d} jours ${h}h ${m}m ${s}s`;
+    }, 1000);
+  </script>
+</body>
+</html>
